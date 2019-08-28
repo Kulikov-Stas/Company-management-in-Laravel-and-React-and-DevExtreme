@@ -6,8 +6,16 @@
 
 ##Быстрая загрузка
 - git clone
+- создаём базу и прописываем в .env и в config/database.php как ниже
 - composer install
 - npm install
+- php artisan migrate --path="database/migrations/[time]_create_users_table.php"   
+- php artisan migrate --path="database/migrations/[time]_create_password_resets_table.php"  
+- php artisan migrate --path="database/migrations/[time]_create_positions_table.php"    
+- php artisan migrate --path="database/migrations/[time]_create_employees_table.php"
+- composer dump-autoload
+- php artisan db:seed
+- добавляем домен к локальному серверу ( company папка домена ) => { /company/public }
 - npm run watch 
 
 ## Database
