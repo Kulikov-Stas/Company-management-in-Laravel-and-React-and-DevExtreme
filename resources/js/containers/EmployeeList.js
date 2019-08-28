@@ -206,7 +206,7 @@ export default class EmployeeList extends Component {
                 { name: 'salary', title: 'Salary'},
                 { name: 'employment_date', title: 'Employment date' },
                 { name: 'parent_id', title: 'Parent Id' },
-                /*{ name: 'photo', title: 'Avatar' },*/
+                { name: 'photo', title: 'Avatar' },
             ],
             rows : [],
             pageSizes : [5, 10, 20],
@@ -262,9 +262,10 @@ export default class EmployeeList extends Component {
                 >
                     <img
                         src={`${(
-                            (row.id+0 < 10) ? 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/0' + row.id :
-                                (row.id+0 > 50) ? '/img/avatar' :
-                                    'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/' + row.id )}.png`}
+                            (row.photo) ? '/storage/uploads/' + row.photo :
+                            (row.id+0 < 10) ? 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/0' + row.id + '.png' :
+                                (row.id+0 > 50) ? '/img/avatar.png' :
+                                    'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/' + row.id + '.png')}`}
                         style={{
                             height: '28px',
                             margin: '0 auto',

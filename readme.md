@@ -1657,45 +1657,46 @@ Route::group(['middleware' => 'auth'], function () {
 - переделываем EmployeeFormatter в resources/js/containers/EmployeeList.js, закидываем в класс
 ```bash
         this.EmployeeFormatter = ({ row }) => (
-            <div
-                style={{
-                    display: 'flex',
-                    width: '100%',
-                    alignItems: 'center'
-                }}
-            >
-                <div
-                    style={{
-                        display: 'inline-block',
-                        background: 'white',
-                        borderRadius: '3px',
-                        width: '30px',
-                        height: '30px',
-                        margin: '-8px 8px -8px 0',
-                        textAlign: 'center',
-                    }}
-                >
-                    <img
-                        src={`${(
-                            (row.id+0 < 10) ? 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/0' + row.id :
-                                (row.id+0 > 50) ? '/img/avatar' :
-                                    'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/' + row.id )}.png`}
+                    <div
                         style={{
-                            height: '28px',
-                            margin: '0 auto',
+                            display: 'flex',
+                            width: '100%',
+                            alignItems: 'center'
                         }}
-                        alt="Avatar"
-                    />
-                </div>
-
-                <FileUploader multiple={false} accept={'*'} uploadMode={'instantly'}
-                              uploadUrl={'#'}  onValueChanged={this.onSelectedFilesChanged} id={row.id} ref={this.myRef} />
-
-                        <div className={'content'}></div>
-
-                {row.fio}
-            </div>
-        );
+                    >
+                        <div
+                            style={{
+                                display: 'inline-block',
+                                background: 'white',
+                                borderRadius: '3px',
+                                width: '30px',
+                                height: '30px',
+                                margin: '-8px 8px -8px 0',
+                                textAlign: 'center',
+                            }}
+                        >
+                            <img
+                                src={`${(
+                                    (row.photo) ? '/storage/uploads/' + row.photo :
+                                    (row.id+0 < 10) ? 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/0' + row.id + '.png' :
+                                        (row.id+0 > 50) ? '/img/avatar.png' :
+                                            'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/' + row.id + '.png')}`}
+                                style={{
+                                    height: '28px',
+                                    margin: '0 auto',
+                                }}
+                                alt="Avatar"
+                            />
+                        </div>
+        
+                        <FileUploader multiple={false} accept={'*'} uploadMode={'instantly'}
+                                      uploadUrl={'#'}  onValueChanged={this.onSelectedFilesChanged} id={row.id} ref={this.myRef} />
+        
+                                <div className={'content'}></div>
+        
+                        {row.fio}
+                    </div>
+                );
 ```
 - php artisan make:controller FileuploadController
 - в api роутере Route::resource('fileupload', 'FileuploadController');
