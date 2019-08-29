@@ -39,6 +39,10 @@ class EmployeeService
                 }
             }
         }
+        /*  the devextreme tree works this way: children of the adjacent hierarchy should always be known, because
+         *  parent_id communication, the rest of the children are not needed, this is enough
+         *  see resources/js/containers/EmployeeList.js@setExpandedRowIds
+        */  #the resulting #array here is connected to what is already there, #and then duplicates are deleted
         return array_merge($all_childs, $parents->toArray());
     }
 }
