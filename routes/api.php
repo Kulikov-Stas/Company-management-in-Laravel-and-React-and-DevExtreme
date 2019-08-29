@@ -23,6 +23,5 @@ Route::resource('employees', 'EmployeeController');
     Route::put('/employees/{employee}', 'EmployeeController@update');
     Route::delete('/employees/{employee}', 'EmployeeController@delete');
     Route::put('/employees', 'EmployeeController@store'); // axios does not let post request ...
-    Route::post('/photos', 'PhotosController@uploadPhotos');
 //});
 
